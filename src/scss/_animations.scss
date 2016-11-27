@@ -1,0 +1,104 @@
+// some animations borrowed from https://daneden.github.io/animate.css/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  15%,
+  35%,
+  65%,
+  95% {
+    opacity: 0.94;
+  }
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flip-up {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px);
+  }
+}
+
+@keyframes m-left {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(50px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes m-right {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  from {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-75px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(0px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-15px, 0, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes logo-slide {
+  from {
+    transform: translateY(calc(48vh - #{$logo-heart-width / 2}));
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

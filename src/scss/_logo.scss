@@ -1,0 +1,68 @@
+.logo {
+  position: absolute;
+  transform: translateY(calc(100vh - ($logo-heart-width / 2)));
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  color: #fff;
+  z-index: 100;
+  height: $logo-heart-width;
+  width: $logo-heart-width;
+  line-height: 1;
+  animation: logo-slide ease-out 0.3s 2s both;
+  &__text {
+    position: absolute;
+    width: $logo-text-width;
+    top: 5.3125rem;
+    right: ($logo-heart-width - $logo-text-width) / 2;
+    left: ($logo-heart-width - $logo-text-width) / 2;
+  }
+  &__heart {
+    background-image: url('../img/heart.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: $logo-heart-width;
+    width: $logo-heart-width;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation-name: fade-in, flicker;
+    animation-delay: 0.9s, 2.4s;
+    animation-duration: 1.5s, 1s;
+    animation-fill-mode: both, forwards;
+    animation-iteration-count: 1, infinite;
+    filter: drop-shadow(0 0 10px #fff);
+  }
+  &__plus {
+    font-size: 2.25rem;
+    font-weight: 300;
+    position: absolute;
+    top: 1.6rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    animation-delay: 0.8s;
+    animation-name: flip-up;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+  }
+  &-m {
+    font-size: 4.5rem;
+    position: absolute;
+    top: 0;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    &--left {
+      left: 0%;
+      animation-name: m-left;
+      animation-delay: 0.1s;
+    }
+    &--right {
+      right: 0%;
+      animation-name: m-right;
+      animation-delay: 0s;
+    }
+  }
+}
