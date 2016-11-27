@@ -51,7 +51,7 @@ module.exports = function makeWebpackConfig() {
   config.output = {
     path: root('dist'),
     publicPath: '',
-    filename: isProd ? 'js/[name].[hash].js' : 'js/[name].js'
+    filename: isProd ? '[name].[hash].js' : '[name].js'
   };
 
   /**
@@ -73,7 +73,7 @@ module.exports = function makeWebpackConfig() {
     rules: [{
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          'url-loader?name=assets/[name].[hash].[ext]&limit=10000',
+          'url-loader?name=[name].[hash].[ext]&limit=10000',
           {
             loader: 'image-webpack-loader',
             query: {
@@ -125,7 +125,7 @@ module.exports = function makeWebpackConfig() {
     // Extract css files
     // Reference: https://github.com/webpack/extract-text-webpack-plugin
     // Disabled when in test mode or not in build mode
-    new ExtractTextPlugin({ filename: 'css/[name].[hash].css', disable: !isProd })
+    new ExtractTextPlugin({ filename: '[name].[hash].css', disable: !isProd })
   ];
 
   // Add build specific plugins
