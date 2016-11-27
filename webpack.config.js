@@ -8,6 +8,8 @@ var webpack = require('webpack');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 /**
  * Env
@@ -115,6 +117,27 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
   config.plugins = [
+    // see https://github.com/jantimon/favicons-webpack-plugin
+    new FaviconsWebpackPlugin({
+      // Your source logo
+      logo: './src/img/favicon.png',
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: '#000',
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: 'M+M Wedding 2017',
+    }),
+    // see https://github.com/Klathmon/imagemin-webpack-plugin
+    // cus the favicons don't get passed through the loader
+    // ironically the .ico itself still doesn't get optimized
+    // but most browsers will use the png anyway
+    new ImageminPlugin({
+      disable: !isProd,
+      test: 'icons*/**',
+      optipng: null,
+      pngquant: {
+        quality: '65'
+      }
+    }),
     // Inject script and link tags into html files
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
