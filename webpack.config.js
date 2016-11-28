@@ -7,6 +7,7 @@ var webpack = require('webpack');
 // Webpack Plugins
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -142,8 +143,9 @@ module.exports = function makeWebpackConfig() {
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      chunksSortMode: 'dependency'
+      inlineSource: '.css$'
     }),
+    new HtmlWebpackInlineSourcePlugin(),
 
     // Extract css files
     // Reference: https://github.com/webpack/extract-text-webpack-plugin
