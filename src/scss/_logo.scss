@@ -1,12 +1,10 @@
 .logo {
   position: absolute;
-  transform: translateY(calc(100vh - ($logo-heart-width / 2)));
   top: 0;
   right: 0;
   left: 0;
   margin: auto;
   color: #fff;
-  z-index: 100;
   height: $logo-heart-width;
   width: $logo-heart-width;
   line-height: 1;

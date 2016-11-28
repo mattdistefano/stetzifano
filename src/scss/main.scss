@@ -9,8 +9,6 @@
 @import 'a11y';
 
 .main {
-  z-index: 50;
-  position: relative;
   max-width: 25rem;
   left: 0;
   right: 0;
@@ -31,8 +29,6 @@
 .footer {
   opacity: 0.7;
   font-size: 0.7rem;
-  position: relative;
-  z-index: 50;
   text-align: center;
   margin: 120px 20px 20px 20px;
 }
