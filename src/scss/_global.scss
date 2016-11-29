@@ -11,6 +11,10 @@ html, body {
   }
 }
 
+main, header, footer {
+  display: block;
+}
+
 a {
   color: #fff;
   text-decoration: underline;
